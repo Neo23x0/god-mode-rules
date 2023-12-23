@@ -1,6 +1,6 @@
 # God Mode Rules
 
-Welcome to the God Mode Security Rules Repository! This repository is a curated collection of a few very special detection rules. These "god mode" rules are meticulously crafted to provide broad coverage against a wide range of cyber threats, including malware, ransomware, advanced persistent threats (APTs), and more.
+Welcome to the God Mode Security Rules Repository! This repository is dedicated to hosting very specific threat deteczion rules. The primary focus of these "god mode" rules is to serve as a proof-of-concept for a special purpose: crafting a single rule that covers as many threats as possible while minimizing false positives. My meticulously crafted rules provide broad coverage against a wide range of cyber threats, including malware, ransomware, advanced persistent threats (APTs), and more.
 
 ## Contents
 
@@ -20,9 +20,9 @@ Sigma Rule: I am in the process of adding a similar Sigma rule.
 
 To use these rules:
 
-- Clone the repository to your local machine.
-- Integrate the rules into your security platforms or use them with compatible tools (e.g., YARA for scanning and Sigma for SIEM systems).
-- Customize the rules as per your specific environment and threat landscape.
+- Clone the repository to your local machine
+- Integrate the rules into your security platforms or use them with compatible tools (e.g., YARA for scanning and Sigma for SIEM systems)
+- Customize the rules as per your specific environment and threat landscape (e.g. filter false positives)
 
 ## License
 
