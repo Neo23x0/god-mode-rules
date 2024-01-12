@@ -27,17 +27,17 @@ rule IDDQD_God_Mode_Rule {
       author = "Florian Roth"
       reference = "Internal Research - get a god mode rule set with THOR by Nextron Systems"
       date = "2019-05-15"
-      modified = "2023-12-23"
+      modified = "2024-01-12"
       score = 60
    strings:
       $ = "sekurlsa::logonpasswords" ascii wide nocase           /* Mimikatz Command */
       $ = "ERROR kuhl" wide xor                                  /* Mimikatz Error */
-      $ = " -w hidden " ascii wide                               /* Power Shell Params */
+      $ = " -w hidden " ascii wide nocase                        /* Power Shell Params */
       $ = "Koadic." ascii                                        /* Koadic Framework */
-      $ = "ReflectiveLoader" fullword ascii wide                 /* Generic - Common Export Name */
+      $ = "ReflectiveLoader" fullword ascii wide xor             /* Generic - Common Export Name */
       $ = "%s as %s\\%s: %d" ascii xor                           /* CobaltStrike indicator */
       $ = "[System.Convert]::FromBase64String(" ascii            /* PowerShell - Base64 encoded payload */
-      $ = "/meterpreter/" ascii                                  /* Metasploit Framework - Meterpreter */
+      $ = "/meterpreter/" ascii xor                              /* Metasploit Framework - Meterpreter */
       $ = / -[eE][decoman]{0,41} ['"]?(JAB|SUVYI|aWV4I|SQBFAFgA|aQBlAHgA|cgBlAG)/ ascii wide  /* PowerShell encoded code */
       $ = /  (sEt|SEt|SeT|sET|seT)  / ascii wide                 /* Casing Obfuscation */
       $ = ");iex " nocase ascii wide                             /* PowerShell - compact code */ 
@@ -46,6 +46,7 @@ rule IDDQD_God_Mode_Rule {
       $ = /\[[\+\-!E]\] (exploit|target|vulnerab|shell|inject)/ nocase  /* Hack Tool Output Pattern */
       $ = "0000FEEDACDC}" ascii wide                             /* Squiblydoo - Class ID */
       $ = "vssadmin delete shadows" ascii nocase                 /* Shadow Copy Deletion via vssadmin - often used in ransomware */
+      $ = ".exe delete shadows" ascii nocase                     /* Shadow Copy Deletion via vssadmin - often used in ransomware */
       $ = " shadowcopy delete" ascii wide nocase                 /* Shadow Copy Deletion via WMIC - often used in ransomware */
       $ = " delete catalog -quiet" ascii wide nocase             /* Shadow Copy Deletion via wbadmin - often used in ransomware */
       $ = "stratum+tcp://" ascii wide                            /* Stratum Address - used in Crypto Miners */
@@ -55,8 +56,8 @@ rule IDDQD_God_Mode_Rule {
       $ = "amsi.dllATVSH" ascii xor                              /* Havoc C2 */
       $ = "BeaconJitter" xor                                     /* Sliver */
       $ = "main.Merlin" ascii fullword                           /* Merlin C2 */
-      $ = { 48 83 EC 50 4D 63 68 3C 48 89 4D 10 }                /* Brute Ratel C4 */
-      $ = "}{0}\"-f " ascii                                      /* PowerShell obfuscation - format string */
+      $ = "\x48\x83\xec\x50\x4d\x63\x68\x3c\x48\x89\x4d\x10" xor /* Brute Ratel C4 */
+      $ = "}{0}\"-f " ascii wide                                 /* PowerShell obfuscation - format string */
       $ = "HISTORY=/dev/null" ascii                              /* Linux HISTORY tampering - found in many samples */
       $ = " /tmp/x;" ascii                                       /* Often used in malicious linux scripts */
       $ = /comsvcs(\.dll)?[, ]{1,2}(MiniDump|#24)/               /* Process dumping method using comsvcs.dll's MiniDump */
