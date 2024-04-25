@@ -2,7 +2,7 @@ rule INDICATOR_SUSPICIOUS_FAN_MADE_MALWARE {
     meta:
         author = "Emirhan Ucan"
         description = "Detects fan made malwares"
-        reference = "625f4bae4d6188fe231c28914281c5000f39117feb70f3847fd1b94951cd15e3 3bdab09c77fda2c0afe9cafd76202cd33f9a1d7adee9e437a931d2ba366ebf87 5dd4ea169cabf9226f54bb53e63ea6a1b5880a0d1222242aee378efb6255b57da 9188c9e15123585764eeaf2664acab784a64c629ad7bde14696788bd4fe9e805 b6ef7d7410a44494a09973b7b0ca173ca4f67f52ea542c7393e3d1874257dfb5"
+        reference = "625f4bae4d6188fe231c28914281c5000f39117feb70f3847fd1b94951cd15e3 3bdab09c77fda2c0afe9cafd76202cd33f9a1d7adee9e437a931d2ba366ebf87 5dd4ea169cabf9226f54bb53e63ea6a1b5880a0d1222242aee378efb6255b57d 9188c9e15123585764eeaf2664acab784a64c629ad7bde14696788bd4fe9e805 b6ef7d7410a44494a09973b7b0ca173ca4f67f52ea542c7393e3d1874257dfb5"
     strings:
         $r20 = "SOFTWARE\\Policies\\Microsoft\\Windows\\System" ascii wide
         $k46 = "DisableAutomaticRebootOnCrash" ascii wide 
