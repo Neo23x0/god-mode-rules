@@ -61,7 +61,7 @@ rule IDDQD_God_Mode_Rule {
       $ = "HISTORY=/dev/null" ascii                              /* Linux HISTORY tampering - found in many samples */
       $ = " /tmp/x;" ascii                                       /* Often used in malicious linux scripts */
       $ = /comsvcs(\.dll)?[, ]{1,2}(MiniDump|#24)/               /* Process dumping method using comsvcs.dll's MiniDump */
-      $ = "AmsiScanBuffer" ascii wide base64                     /* AMSI Bypass */
+      $ = "AmsiScanBuffer" base64 base64wide                     /* AMSI Bypass */
       $ = "AmsiScanBuffer" xor(0x01-0xff)                        /* AMSI Bypass */
       $ = "%%%%%%%%%%%######%%%#%%####%  &%%**#" ascii wide xor  /* SeatBelt */
    condition:
