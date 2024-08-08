@@ -8,7 +8,7 @@
       \  / __ |/ , _/ __ |  / , _/ // / / -_) 
       /_/_/ |_/_/|_/_/ |_| /_/|_|\_,_/_/\__/  
    
-   Florian Roth - v0.8.0 December 2023 - Merry Christmas!
+   Florian Roth - v0.8.1 August 2024 - Merry Christmas!
 
    The 'God Mode Rule' is a proof-of-concept YARA rule designed to 
    identify a wide range of security threats. It includes detections for 
